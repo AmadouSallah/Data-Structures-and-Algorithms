@@ -1,14 +1,14 @@
 public class BinarySearchTree {
 
-    public Node root;
-    int size;
+    public static Node root;
+    public static int size;
 
     public BinarySearchTree() {
       root = null;
       size = 0;
     }
 
-    public void insert(int value) {
+    public static void insert(int value) {
       Node newNode = new Node(value);
       if (root == null) {
         root = newNode;
@@ -36,7 +36,17 @@ public class BinarySearchTree {
       size++;
     }
 
-  private class Node {
+
+    public static void inorderTraversal(Node node) {
+      if (node == null) {
+        return;
+      }
+      inorderTraversal(node.left);
+      System.out.print(node.data + " ");
+      inorderTraversal(node.right);
+    }
+
+  private static class Node {
     int data;
     Node left, right;
 
@@ -53,6 +63,9 @@ public class BinarySearchTree {
     bst.insert(6);
     bst.insert(2);
     bst.insert(0);
+
+    inorderTraversal(bst.root);
+    System.out.println();
   }
 
 }
