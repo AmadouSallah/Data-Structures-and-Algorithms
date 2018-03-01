@@ -63,6 +63,14 @@ public class BinarySearchTree {
     return current.data;
   }
 
+  public static int getMax(Node node) {
+    Node current = node;
+    while (current.right != null) {
+      current = current.right;
+    }
+    return current.data;
+  }
+
   public static void main(String[] args) {
     BinarySearchTree bst = new BinarySearchTree();
     bst.insert(3);
@@ -76,6 +84,7 @@ public class BinarySearchTree {
     System.out.println();
 
     System.out.println("minimum value = " + bst.getMin(bst.root));
+    System.out.println("maximum value = " + bst.getMax(bst.root));
   }
 
 }
